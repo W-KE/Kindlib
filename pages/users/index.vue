@@ -21,16 +21,16 @@
 
 <script>
 export default {
-  async asyncData ({ $http }) {
-    const data = await $http.$get('/api/users')
-    return { users: data }
+  async asyncData({ $http }) {
+    const data = await $http.$get('/api/users');
+    return { users: data };
   },
-  head () {
+  head() {
     return {
-      title: 'Users'
-    }
-  }
-}
+      title: 'Users',
+    };
+  },
+};
 </script>
 
 <style scoped>

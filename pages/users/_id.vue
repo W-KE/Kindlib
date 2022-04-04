@@ -17,21 +17,19 @@
 
 <script>
 export default {
-  asyncData ({ params, error, $http }) {
-    return $http.$get('/api/users/' + params.id)
-      .then((res) => {
-        return { user: res }
-      })
-      .catch((e) => {
-        error({ statusCode: 404, message: 'User not found' })
-      })
+  asyncData({ params, error, $http }) {
+    return $http.$get(`/api/users/${params.id}`)
+      .then((res) => ({ user: res }))
+      .catch(() => {
+        error({ statusCode: 404, message: 'User not found' });
+      });
   },
-  head () {
+  head() {
     return {
-      title: `User: ${this.user.name}`
-    }
-  }
-}
+      title: `User: ${this.user.name}`,
+    };
+  },
+};
 </script>
 
 <style scoped>
