@@ -1,11 +1,9 @@
-<p align="center"><img width="328px" src="https://nuxtjs.org/logos/nuxt.svg"></p>
+[![Node.js CI](https://github.com/W-KE/Kindlib/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/W-KE/Kindlib/actions/workflows/node.js.yml)
 
-
-# Nuxt.js with Express
+# Kindlib
 
 > [ExpressJS](http://expressjs.com/) + [Nuxt.js](https://nuxtjs.org) = :zap:
 
-Live Demo: [https://codesandbox.io/s/github/nuxt-community/express-template](https://codesandbox.io/s/github/nuxt-community/express-template)
 
 ## Installation
 
