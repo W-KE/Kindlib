@@ -32,6 +32,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '@/plugins/ant-design-vue',
   ],
 
   /*

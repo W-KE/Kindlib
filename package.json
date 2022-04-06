@@ -12,10 +12,12 @@
   },
   "dependencies": {
     "@nuxt/http": "latest",
+    "ant-design-vue": "^1.7.8",
     "express": "latest",
     "nuxt": "latest",
     "passport-local": "^1.0.0",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "vue": "^2.6.14"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
