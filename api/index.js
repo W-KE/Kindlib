@@ -1,18 +1,16 @@
-const express = require('express');
+import express from 'express';
+import users from './routes/users';
+import test from './routes/test';
 
 // Create express instance
 const app = express();
-
-// Require API routes
-const users = require('./routes/users');
-const test = require('./routes/test');
 
 // Import API Routes
 app.use(users);
 app.use(test);
 
 // Export express app
-module.exports = app;
+export default app;
 
 // Start standalone server if directly running
 if (require.main === module) {
