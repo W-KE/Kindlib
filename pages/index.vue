@@ -1,49 +1,33 @@
 <template>
-  <div class="container">
+  <section class="container">
     <div>
       <Logo />
       <h1 class="title">
-        nuxt-express
+        USERS
       </h1>
-      <div>
-        {{ test }}
-        <div class="links">
-          <a
-            href="/users"
-            class="button--green"
-          >
-            Users List
-          </a>
-        </div>
-      </div>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <ul class="users">
+        <li v-for="(user, index) in users" :key="index" class="user">
+          <nuxt-link :to="{ name: 'users-id', params: { id: index }}">
+            {{ user.name }}
+          </nuxt-link>
+        </li>
+      </ul>
+      <nuxt-link class="button" to="/">
+        Homepage
+      </nuxt-link>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 export default {
   async asyncData({ $http }) {
-    const test = await $http.$get('/api/test');
+    const data = await $http.$get('/api/users');
+    return { users: data };
+  },
+  head() {
     return {
-      test,
+      title: 'Users',
     };
   },
 };
@@ -58,34 +42,23 @@ export default {
   align-items: center;
   text-align: center;
 }
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.title
+{
+  margin: 30px 0;
 }
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.users
+{
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-
-.links {
-  padding-top: 15px;
+.user
+{
+  margin: 10px 0;
+}
+.button
+{
+  display: inline-block;
+  margin-top: 50px;
 }
 </style>

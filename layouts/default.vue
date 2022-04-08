@@ -1,63 +1,101 @@
 <template>
-  <div>
-    <Nuxt />
-  </div>
+  <a-layout id="components-layout-top-side-2">
+    <a-layout-header class="header">
+      <a-row>
+        <a-col :span="16">
+          <div class="logo">
+            Kindlib
+          </div>
+          <a-menu
+            theme="dark"
+            mode="horizontal"
+            :default-selected-keys="['2']"
+            :style="{ lineHeight: '64px' }"
+          >
+            <a-menu-item key="1">
+              Home
+            </a-menu-item>
+          </a-menu>
+        </a-col>
+        <a-col :span="8">
+          <a-input-search
+            class="nav-search"
+            placeholder="input search text"
+            enter-button="Search"
+            size="large"
+            @search="onSearch"
+          />
+        </a-col>
+      </a-row>
+    </a-layout-header>
+    <a-layout>
+      <a-layout-sider width="200" style="background: #fff">
+        <a-menu
+          mode="inline"
+          :default-selected-keys="['1']"
+          :default-open-keys="['sub1']"
+          :style="{ height: '100%', borderRight: 0 }"
+        >
+          <a-menu-item key="1">
+            <span><a-icon type="book" /></span>
+            All Books
+          </a-menu-item>
+          <a-menu-item key="2">
+            <span><a-icon type="user" /></span>
+            Author
+          </a-menu-item>
+          <a-menu-item key="3">
+            <span><a-icon type="printer" /></span>
+            Publisher
+          </a-menu-item>
+          <a-menu-item key="4">
+            <span><a-icon type="database" /></span>
+            Category
+          </a-menu-item>
+        </a-menu>
+      </a-layout-sider>
+      <a-layout style="padding: 0 24px 24px">
+        <br>
+        <a-layout-content
+          :style="{ background: '#fff', padding: '10px', margin: 0, minHeight: '280px' }"
+        >
+          <Nuxt />
+        </a-layout-content>
+      </a-layout>
+    </a-layout>
+  </a-layout>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      collapsed: false,
+    };
+  },
+  methods: {
+    onSearch() {
+      console.log('search worked');
+    },
+  },
+};
+
+</script>
 
 <style>
-html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
+#components-layout-top-side-2 .logo {
+  margin-right: 50px;
+  float: left;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
+#components-layout-top-side-2{
+  height: 100vh;
 }
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+.logo{
+  color: white;
+  size: 200px;
 }
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+.nav-search{
+  margin-top:10px;
 }
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
-
 </style>
